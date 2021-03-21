@@ -18,7 +18,12 @@
             <h3><a href="">Highscores</a></h3>
             <h3> Time: <span id="timer">100</span></h3>
         </section>
-        <section class="quiz">
+        <section id="empty-state" class="empty-state">
+            <h1>Coding Quiz Challenge</h1>
+            <p>Test your knowledge of Javascript! Click the "Start Quiz" button below to begin the quiz. Answer each question correct, and do it as quickly as possible! But, each question you get wrong will deduct 10 seconds from your time, so don't go too fast. Once you're done, you can compare your score to your classmates.</p>
+            <button id="start-quiz" onclick="startQuiz()">Start Quiz</button>
+        </section>
+        <section id="quiz" class="quiz hidden">
             <h1>1. Question Title</h1>
             <div class="answer-btns">
                 <button id="a">Answer A</button>
@@ -26,6 +31,12 @@
                 <button id="c">Answer C</button>
                 <button id="d">Answer D</button>
             </div>
+        </section>
+        <section id="game-over" class="game-over hidden">
+            <h1>Game Over!</h1>
+            <h3>Enter your name to be added to the leaderboard.</h3>
+            <input type="text" placeholder="Enter your name">
+            <button>Submit</button>
         </section>
         
         <script src="./assets/scripts.js" async defer></script>
