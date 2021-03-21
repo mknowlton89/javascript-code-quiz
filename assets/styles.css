@@ -1,0 +1,43 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: black;
+}
+
+body {
+    padding: 10px;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-between;
+}
+
+.quiz {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.answer-btns {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.answer-btns button {
+    width: fit-content;
+    
+}
+
+.scoreboard h3, .scoreboard a {
+    text-decoration: none;
+    font-weight: 400;
+    margin-top: 5px,
+    margin-bottom: 5px;
+    height: fit-content;
+}
