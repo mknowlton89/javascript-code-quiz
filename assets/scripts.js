@@ -1,10 +1,10 @@
 // JS Variables
-let timeLeft = 10000;
+let timeLeft = 100;
 let questionNumber = 0;
 let quizQuestions = [
     {
         question: "What Javascript data type enables you to store a list of similar items?",
-        correctAnswer: "C",
+        correctAnswer: "c",
         answerA: "A: String",
         answerB: "B: Number",
         answerC: "C: Array",
@@ -30,25 +30,35 @@ let buttonA = document.getElementById("a");
 let buttonB = document.getElementById("b");
 let buttonC = document.getElementById("c");
 let buttonD = document.getElementById("d");
+let answerBtns = document.querySelector(".answer-btns");
 
 // Function Declarations
+function nextQuestion(){
+    if (questionNumber === 0) {
+        console.log("nextQuestion was called");
+        let question = quizQuestions[questionNumber].question;
+        let answerA = quizQuestions[questionNumber].answerA;
+        let answerB = quizQuestions[questionNumber].answerB;
+        let answerC = quizQuestions[questionNumber].answerC;
+        let answerD = quizQuestions[questionNumber].answerD;
+
+        questionTitle.innerHTML = question;
+        buttonA.innerHTML = answerA;
+        buttonB.innerHTML = answerB;
+        buttonC.innerHTML = answerC;
+        buttonD.innerHTML = answerD;
+    } else {
+        // alert("Next question")
+    }
+}
+
 function startQuiz(){
     // emptyState.setAttribute("style", "visibility: hidden");
     emptyState.classList.toggle("hidden");
     // quiz.setAttribute("style", "visibility: visible");
     quiz.classList.toggle("hidden");
 
-    let question = quizQuestions[questionNumber].question;
-    let answerA = quizQuestions[questionNumber].answerA;
-    let answerB = quizQuestions[questionNumber].answerB;
-    let answerC = quizQuestions[questionNumber].answerC;
-    let answerD = quizQuestions[questionNumber].answerD;
-
-    questionTitle.innerHTML = question;
-    buttonA.innerHTML = answerA;
-    buttonB.innerHTML = answerB;
-    buttonC.innerHTML = answerC;
-    buttonD.innerHTML = answerD;
+    nextQuestion();
 
 }
 
@@ -77,3 +87,24 @@ function countdownTimer() {
 
 // Event Listeners
 document.getElementById("start-quiz").addEventListener("click", countdownTimer);
+answerBtns.addEventListener("click", function(event) {
+    let element = event.target;
+
+    console.log(element);
+    console.log(event);
+    console.log(event.srcElement.id);
+
+    if (event.srcElement.id === quizQuestions[questionNumber].correctAnswer){
+        // TODO: Add the message "That answer is correct!"
+        document.getElementById("question-results").innerHTML = "That is correct!";
+
+    } else {
+        // TODO: Add the message "That answer is incorrect!"
+        document.getElementById("question-results").innerHTML = "That is incorrect!";
+        timeLeft = timeLeft - 50;
+        }
+
+    questionNumber++;
+    nextQuestion();
+
+})
