@@ -12,12 +12,52 @@ let quizQuestions = [
     },
     {
         question: "What are the following called in Javascript? '=, >, <, !='",
-        correctAnswer: "A",
+        correctAnswer: "a",
         answerA: "A: Operators",
         answerB: "B: Functions",
         answerC: "C: Variables",
         answerD: "D: Tags"
-    }
+    },
+    {
+        question: "Which of the following type of variable is visible everywhere in your JavaScript code?",
+        correctAnswer: "a",
+        answerA: "A: Global variable",
+        answerB: "B: Local variable",
+        answerC: "C: Both of the above",
+        answerD: "D: None of the above"
+    },
+    {
+        question: "Which built-in method removes the last element from an array and returns that element?",
+        correctAnswer: "c",
+        answerA: "A: last()",
+        answerB: "B: get()",
+        answerC: "C: pop()",
+        answerD: "D: None of the above"
+    },
+    {
+        question: "Which built-in method returns the calling string value converted to lower case?",
+        correctAnswer: "a",
+        answerA: "A: toLowerCase()",
+        answerB: "B: toLower()",
+        answerC: "C: changeCase(case)",
+        answerD: "D: None of the above"
+    },
+    {
+        question: "Which of the following function of String object is used to match a regular expression against a string?",
+        correctAnswer: "b",
+        answerA: "A: concat()",
+        answerB: "B: match()",
+        answerC: "C: search()",
+        answerD: "D: replace()"
+    },
+    {
+        question: "Which of the following function of Array object returns a new array comprised of this array joined with other array(s) and/or value(s)?",
+        correctAnswer: "a",
+        answerA: "A: concat()",
+        answerB: "B: pop()",
+        answerC: "C: push()",
+        answerD: "D: some()"
+    },
 ]
 
 // DOM Variables
@@ -25,6 +65,7 @@ let emptyState = document.getElementById("empty-state");
 let quiz = document.getElementById("quiz");
 let timeEl = document.getElementById("timer");
 let gameOverEl = document.getElementById("game-over");
+let gameOverh1 = document.getElementById("quiz-over-h1")
 let questionTitle = document.getElementById("question-title");
 let buttonA = document.getElementById("a");
 let buttonB = document.getElementById("b");
@@ -35,7 +76,7 @@ let answerBtns = document.querySelector(".answer-btns");
 // Function Declarations
 function nextQuestion(){
     if (questionNumber === 0) {
-        console.log("nextQuestion was called");
+        
         let question = quizQuestions[questionNumber].question;
         let answerA = quizQuestions[questionNumber].answerA;
         let answerB = quizQuestions[questionNumber].answerB;
@@ -47,8 +88,28 @@ function nextQuestion(){
         buttonB.innerHTML = answerB;
         buttonC.innerHTML = answerC;
         buttonD.innerHTML = answerD;
-    } else {
+
+        document.getElementById("question-results").innerHTML = "";
+    } else if(questionNumber > 0) {
         // alert("Next question")
+        // TODO: Index into the questions array to the questionNumber and update the content of the page.
+        question = quizQuestions[questionNumber].question;
+        answerA = quizQuestions[questionNumber].answerA;
+        answerB = quizQuestions[questionNumber].answerB;
+        answerC = quizQuestions[questionNumber].answerC;
+        answerD = quizQuestions[questionNumber].answerD;
+
+        questionTitle.innerHTML = question;
+        buttonA.innerHTML = answerA;
+        buttonB.innerHTML = answerB;
+        buttonC.innerHTML = answerC;
+        buttonD.innerHTML = answerD;
+
+        document.getElementById("question-results").innerHTML = "";
+    }
+
+    else if (questionNumber == "undefined") {
+        quizComplete();
     }
 }
 
@@ -59,13 +120,24 @@ function startQuiz(){
     quiz.classList.toggle("hidden");
 
     nextQuestion();
-
 }
 
 
 function gameOver(){
     quiz.classList.toggle("hidden");
     gameOverEl.classList.toggle("hidden");
+}
+
+function quizComplete(){
+    clearInterval(timerInterval);
+    
+    console.log("Quiz complete was called.");
+    console.log(questionNumber);
+    quiz.classList.toggle("hidden");
+    gameOverEl.classList.toggle("hidden");
+    gameOverh1.innerHTML = "Congrats! You completed the quiz.";
+
+
 }
 
 
@@ -87,7 +159,7 @@ function countdownTimer() {
 
 // Event Listeners
 document.getElementById("start-quiz").addEventListener("click", countdownTimer);
-answerBtns.addEventListener("click", function(event) {
+answerBtns.addEventListener("click", async function(event) {
     let element = event.target;
 
     console.log(element);
@@ -95,15 +167,14 @@ answerBtns.addEventListener("click", function(event) {
     console.log(event.srcElement.id);
 
     if (event.srcElement.id === quizQuestions[questionNumber].correctAnswer){
-        // TODO: Add the message "That answer is correct!"
         document.getElementById("question-results").innerHTML = "That is correct!";
 
     } else {
-        // TODO: Add the message "That answer is incorrect!"
         document.getElementById("question-results").innerHTML = "That is incorrect!";
-        timeLeft = timeLeft - 50;
+        timeLeft = timeLeft - 20;
         }
 
+    await new Promise(r => setTimeout(r, 2000));
     questionNumber++;
     nextQuestion();
 
