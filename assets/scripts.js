@@ -59,6 +59,8 @@ let quizQuestions = [
         answerD: "D: some()"
     },
 ]
+questionBankSize = quizQuestions.length;
+console.log(questionBankSize);
 
 // DOM Variables
 let emptyState = document.getElementById("empty-state");
@@ -90,7 +92,7 @@ function nextQuestion(){
         buttonD.innerHTML = answerD;
 
         document.getElementById("question-results").innerHTML = "";
-    } else if(questionNumber > 0) {
+    } else if(questionNumber > 0 && questionNumber < questionBankSize) {
         // alert("Next question")
         // TODO: Index into the questions array to the questionNumber and update the content of the page.
         question = quizQuestions[questionNumber].question;
@@ -108,7 +110,7 @@ function nextQuestion(){
         document.getElementById("question-results").innerHTML = "";
     }
 
-    else if (questionNumber == "undefined") {
+    else {
         quizComplete();
     }
 }
@@ -129,15 +131,10 @@ function gameOver(){
 }
 
 function quizComplete(){
-    clearInterval(timerInterval);
-    
-    console.log("Quiz complete was called.");
-    console.log(questionNumber);
+
     quiz.classList.toggle("hidden");
     gameOverEl.classList.toggle("hidden");
     gameOverh1.innerHTML = "Congrats! You completed the quiz.";
-
-
 }
 
 
@@ -152,8 +149,9 @@ function countdownTimer() {
         clearInterval(timerInterval);
         // Calls function to create and append image
         gameOver();
+      } else if (questionNumber === (questionBankSize - 1)) {
+        clearInterval(timerInterval);
       }
-  
     }, 1000);
   }
 
@@ -174,8 +172,7 @@ answerBtns.addEventListener("click", async function(event) {
         timeLeft = timeLeft - 20;
         }
 
-    await new Promise(r => setTimeout(r, 2000));
+    await new Promise(r => setTimeout(r, 1000));
     questionNumber++;
     nextQuestion();
-
 })
