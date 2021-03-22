@@ -1,5 +1,6 @@
 // JS Variables
 let timeLeft = 100;
+let score;
 let questionNumber = 0;
 let quizQuestions = [
     {
@@ -59,8 +60,8 @@ let quizQuestions = [
         answerD: "D: some()"
     },
 ]
-questionBankSize = quizQuestions.length;
-console.log(questionBankSize);
+let questionBankSize = quizQuestions.length;
+let usersList = [];
 
 // DOM Variables
 let emptyState = document.getElementById("empty-state");
@@ -74,6 +75,9 @@ let buttonB = document.getElementById("b");
 let buttonC = document.getElementById("c");
 let buttonD = document.getElementById("d");
 let answerBtns = document.querySelector(".answer-btns");
+let highscores = [];
+let initialsEl = document.getElementById("initials");
+let submitBtn = document.getElementById("submit"); 
 
 // Function Declarations
 function nextQuestion(){
@@ -128,6 +132,8 @@ function startQuiz(){
 function gameOver(){
     quiz.classList.toggle("hidden");
     gameOverEl.classList.toggle("hidden");
+
+    score = timeLeft;
 }
 
 function quizComplete(){
@@ -135,6 +141,8 @@ function quizComplete(){
     quiz.classList.toggle("hidden");
     gameOverEl.classList.toggle("hidden");
     gameOverh1.innerHTML = "Congrats! You completed the quiz.";
+
+    score = timeLeft;
 }
 
 
@@ -155,14 +163,11 @@ function countdownTimer() {
     }, 1000);
   }
 
+
 // Event Listeners
 document.getElementById("start-quiz").addEventListener("click", countdownTimer);
 answerBtns.addEventListener("click", async function(event) {
     let element = event.target;
-
-    console.log(element);
-    console.log(event);
-    console.log(event.srcElement.id);
 
     if (event.srcElement.id === quizQuestions[questionNumber].correctAnswer){
         document.getElementById("question-results").innerHTML = "That is correct!";
@@ -175,4 +180,18 @@ answerBtns.addEventListener("click", async function(event) {
     await new Promise(r => setTimeout(r, 1000));
     questionNumber++;
     nextQuestion();
+})
+
+document.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let user = {
+        initials: initialsEl.value,
+        score: score,
+    }
+
+    usersList.push(user);
+
+    localStorage.setItem("usersList", JSON.stringify(usersList));
+
 })

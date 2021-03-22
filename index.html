@@ -15,7 +15,7 @@
     </head>
     <body>
         <section class="scoreboard">
-            <h3><a href="">Highscores</a></h3>
+            <h3><a href="./leaderboard.html">Highscores</a></h3>
             <h3> Time: <span id="timer">100</span></h3>
         </section>
         <section id="empty-state" class="empty-state">
@@ -37,8 +37,10 @@
         <section id="game-over" class="game-over hidden">
             <h1 id="quiz-over-h1">Game Over!</h1>
             <h3>Enter your name to be added to the leaderboard.</h3>
-            <input type="text" placeholder="Enter your name">
-            <button>Submit</button>
+            <form>
+                <input id="initials" type="text" placeholder="Enter your name">
+                <button id="submit">Submit</button>
+            </form>
         </section>
         
         <script src="./assets/scripts.js" async defer></script>

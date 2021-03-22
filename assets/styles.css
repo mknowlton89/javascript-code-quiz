@@ -14,12 +14,35 @@ button {
     padding-bottom: 4px;
 }
 
+button a{
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(77, 0, 128);
+    color: white;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    text-decoration: none;
+}
+
 button:hover {
     cursor: pointer;
 }
 
 body {
     padding: 10px;
+}
+
+.highscores-heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.highscore-list {
+    display: flex;
+    justify-content: center;
 }
 
 .scoreboard {
@@ -35,7 +58,7 @@ body {
     margin-right: 20%;
 }
 
-.empty-state button, .game-over button {
+.empty-state button, .game-over button, .highscores-heading button{
     margin-left: 35%;
     margin-right: 35%;
     /* width:fit-content; */
