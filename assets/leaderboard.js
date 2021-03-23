@@ -9,6 +9,9 @@ console.log(userArray);
 let listEl = document.getElementById("list");
 
 function printWinners(){
+
+    userArray.sort(compare);
+    
     for (let i = 0; i < userArray.length; i++) {
         let initials = userArray[i].initials;
         let score = userArray[i].score;
@@ -33,8 +36,6 @@ function compare(b, a) {
     }
     return comparison;
 }
-
-userArray.sort(compare);
 
 printWinners();
 
