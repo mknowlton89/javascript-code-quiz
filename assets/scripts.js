@@ -202,6 +202,11 @@ function compare(b, a) {
     return comparison;
 }
 
+function playAgain(){
+
+    highscoresEl.classList.toggle("hidden");
+    emptyState.classList.toggle("hidden");
+}
 
 // Event Listeners
 document.getElementById("start-quiz").addEventListener("click", countdownTimer);
@@ -261,8 +266,4 @@ document.getElementById("leaderboard-link").addEventListener("click", function()
     // printWinners();
 })
 
-function playAgain(){
 
-    highscoresEl.classList.toggle("hidden");
-    emptyState.classList.toggle("hidden");
-}
