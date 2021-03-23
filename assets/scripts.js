@@ -66,6 +66,7 @@ let userArray = [];
 // DOM Variables
 let emptyState = document.getElementById("empty-state");
 let quiz = document.getElementById("quiz");
+let highscoresEl = document.getElementById("highscores")
 let timeEl = document.getElementById("timer");
 let gameOverEl = document.getElementById("game-over");
 let gameOverh1 = document.getElementById("quiz-over-h1")
@@ -78,6 +79,7 @@ let answerBtns = document.querySelector(".answer-btns");
 let highscores = [];
 let initialsEl = document.getElementById("initials");
 let submitBtn = document.getElementById("submit"); 
+let listEl = document.getElementById("list");
 
 // Function Declarations
 function nextQuestion(){
@@ -157,11 +159,48 @@ function countdownTimer() {
         clearInterval(timerInterval);
         // Calls function to create and append image
         gameOver();
-      } else if (questionNumber === (questionBankSize - 1)) {
+      } else if (questionNumber === (questionBankSize)) {
         clearInterval(timerInterval);
       }
     }, 1000);
   }
+
+function printWinners(){
+
+    arrayToPrint = JSON.parse(localStorage.getItem("userList"));
+    console.log("Array to print is: " + arrayToPrint);
+
+    arrayToPrint.sort(compare);
+
+    // if (arrayToPrint.length < 1){
+    // arrayToPrint.sort(compare);
+    // } else {
+
+        for (let i = 0; i < arrayToPrint.length; i++) {
+            let initials = arrayToPrint[i].initials;
+            let score = arrayToPrint[i].score;
+
+            let entry = document.createElement('li');
+
+            entry.appendChild(document.createTextNode(initials + " " + score));
+
+            listEl.appendChild(entry);
+        }
+    }
+
+
+function compare(b, a) {
+    const userA = a.score;
+    const userB = b.score;
+
+    let comparison = 0;
+    if (userA > userB) {
+        comparison = 1;
+    } else if (userA < userB) {
+        comparison = -1;
+    }
+    return comparison;
+}
 
 
 // Event Listeners
@@ -177,7 +216,7 @@ answerBtns.addEventListener("click", async function(event) {
         timeLeft = timeLeft - 20;
         }
 
-    await new Promise(r => setTimeout(r, 1000));
+    await new Promise(r => setTimeout(r, 500));
     questionNumber++;
     nextQuestion();
 })
@@ -185,20 +224,31 @@ answerBtns.addEventListener("click", async function(event) {
 document.addEventListener("submit", function(event) {
     event.preventDefault();
 
+    highscoresEl.classList.toggle("hidden");
+    gameOverEl.classList.toggle("hidden");
+
+    // Creating a user object
     let user = {
         initials: initialsEl.value,
         score: score,
     }
 
-    userArray = JSON.parse(localStorage.getItem("userList"));
+    // Adding that new users to the end of the userArray
+    userArray.push(user);
 
-    if (userArray == null){
-        userArray = [];
+    // Pull the array from local storage
+    let storageArray = JSON.parse(localStorage.getItem("userList"));
+
+    if (storageArray === null) {
+        arrayToPrint = userArray;
     } else {
-        userArray.push(user);
-
-        localStorage.setItem("userList", JSON.stringify(userArray));
-
-        window.location.href = "/leaderboard.html";
+        // Create a new array that concats the local array + the storage array
+        arrayToPrint = userArray.concat(storageArray); 
     }
+
+    // Then, set that to storage.
+    localStorage.setItem("userList", JSON.stringify(arrayToPrint));
+
+    // Calling the print winners function
+    printWinners();
 })

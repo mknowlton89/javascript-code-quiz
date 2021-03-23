@@ -1,10 +1,10 @@
-let userArray = JSON.parse(localStorage.getItem("userList"));
+// let userArray = JSON.parse(localStorage.getItem("userList"));
 
-console.log(userArray);
+// console.log(userArray);
 
-// userArray.sort((b, a) => a.score > b.score);
+// // userArray.sort((b, a) => a.score > b.score);
 
-console.log(userArray);
+// console.log(userArray);
 
 let listEl = document.getElementById("list");
 
