@@ -196,5 +196,5 @@ document.addEventListener("submit", function(event) {
 
     localStorage.setItem("userList", JSON.stringify(userArray));
 
-    window.location.href = "https://mknowlton89.github.io/javascript-code-quiz/leaderboard.html";
+    window.location.href = "/leaderboard.html";
 })
