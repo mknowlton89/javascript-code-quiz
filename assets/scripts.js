@@ -61,7 +61,7 @@ let quizQuestions = [
     },
 ]
 let questionBankSize = quizQuestions.length;
-let usersList = [];
+let userArray = [];
 
 // DOM Variables
 let emptyState = document.getElementById("empty-state");
@@ -190,8 +190,11 @@ document.addEventListener("submit", function(event) {
         score: score,
     }
 
-    usersList.push(user);
+    userArray = JSON.parse(localStorage.getItem("userList"));
 
-    localStorage.setItem("usersList", JSON.stringify(usersList));
+    userArray.push(user);
 
+    localStorage.setItem("userList", JSON.stringify(userArray));
+
+    window.location.href = './leaderboard.html';
 })
