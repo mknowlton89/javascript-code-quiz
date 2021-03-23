@@ -261,7 +261,8 @@ document.getElementById("leaderboard-link").addEventListener("click", function()
     // printWinners();
 })
 
-document.getElementById("play-again").addEventListener("click", function(){
+function playAgain(){
+
     highscoresEl.classList.toggle("hidden");
     emptyState.classList.toggle("hidden");
-})
+}
