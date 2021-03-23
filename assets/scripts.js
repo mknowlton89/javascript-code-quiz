@@ -205,8 +205,9 @@ function compare(b, a) {
 
 // Event Listeners
 document.getElementById("start-quiz").addEventListener("click", countdownTimer);
+
 answerBtns.addEventListener("click", async function(event) {
-    let element = event.target;
+
 
     if (event.srcElement.id === quizQuestions[questionNumber].correctAnswer){
         document.getElementById("question-results").innerHTML = "That is correct!";

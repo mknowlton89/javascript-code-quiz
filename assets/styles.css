@@ -77,11 +77,12 @@ body {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
+    width: fit-content;
 }
 
 .answer-btns button {
     width: fit-content;
-    margin-top: 10px;
+    margin: 10px;
 }
 
 .scoreboard h3, .scoreboard a {
