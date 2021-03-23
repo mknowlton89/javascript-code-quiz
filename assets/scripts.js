@@ -192,9 +192,13 @@ document.addEventListener("submit", function(event) {
 
     userArray = JSON.parse(localStorage.getItem("userList"));
 
-    userArray.push(user);
+    if (userArray == null){
+        userArray = [];
+    } else {
+        userArray.push(user);
 
-    localStorage.setItem("userList", JSON.stringify(userArray));
+        localStorage.setItem("userList", JSON.stringify(userArray));
 
-    window.location.href = "/leaderboard.html";
+        window.location.href = "/leaderboard.html";
+    }
 })
