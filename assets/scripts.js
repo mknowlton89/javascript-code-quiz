@@ -258,5 +258,5 @@ document.getElementById("leaderboard-link").addEventListener("click", function()
     highscoresEl.classList.toggle("hidden");
     emptyState.classList.toggle("hidden");
 
-    printWinners();
+    // printWinners();
 })
