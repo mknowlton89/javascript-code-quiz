@@ -99,3 +99,7 @@ body {
 .hidden {
     display: none;
 }
+
+#leaderboard-link:hover {
+    cursor: pointer;
+}
