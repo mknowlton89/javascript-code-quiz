@@ -19,17 +19,17 @@ SO THAT I can gauge my progress compared to my peers
 ## Acceptance Criteria
 
 ```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and my score
+G̶I̶V̶E̶N̶ I̶ a̶m̶ t̶a̶k̶i̶n̶g̶ a̶ c̶o̶d̶e̶ q̶u̶i̶z̶
+W̶H̶E̶N̶ I̶ c̶l̶i̶c̶k̶ t̶h̶e̶ s̶t̶a̶r̶t̶ b̶u̶t̶t̶o̶n̶
+T̶H̶E̶N̶ a̶ t̶i̶m̶e̶r̶ s̶t̶a̶r̶t̶s̶ a̶n̶d̶ I̶ a̶m̶ p̶r̶e̶s̶e̶n̶t̶e̶d̶ w̶i̶t̶h̶ a̶ q̶u̶e̶s̶t̶i̶o̶n̶
+WH̶E̶N̶ I̶ a̶n̶s̶w̶e̶r̶ a̶ q̶u̶e̶s̶t̶i̶o̶n̶
+T̶H̶E̶N̶ I̶ a̶m̶ p̶r̶e̶s̶e̶n̶t̶e̶d̶ w̶i̶t̶h̶ a̶n̶o̶t̶h̶e̶r̶ q̶u̶e̶s̶t̶i̶o̶n̶
+W̶H̶E̶N̶ I̶ a̶n̶s̶w̶e̶r̶ a̶ q̶u̶e̶s̶t̶i̶o̶n̶ i̶n̶c̶o̶r̶r̶e̶c̶t̶l̶y̶
+T̶H̶E̶N̶ t̶i̶m̶e̶ i̶s̶ s̶u̶b̶t̶r̶a̶c̶t̶e̶d̶ f̶r̶o̶m̶ t̶h̶e̶ c̶l̶o̶c̶k̶
+W̶H̶E̶N̶ a̶l̶l̶ q̶u̶e̶s̶t̶i̶o̶n̶s̶ a̶r̶e̶ a̶n̶s̶w̶e̶r̶e̶d̶ o̶r̶ t̶h̶e̶ t̶i̶m̶e̶r̶ r̶e̶a̶c̶h̶e̶s̶ 0̶
+T̶H̶E̶N̶ t̶h̶e̶ g̶a̶m̶e̶ i̶s̶ o̶v̶e̶r̶
+W̶H̶E̶N̶ t̶h̶e̶ g̶a̶m̶e̶ i̶s̶ o̶v̶e̶r̶
+T̶H̶E̶N̶ I̶ c̶a̶n̶ s̶a̶v̶e̶ m̶y̶ i̶n̶i̶t̶i̶a̶l̶s̶ a̶n̶d̶ m̶y̶ s̶c̶o̶r̶e̶
 ```
 
 ## Mock-Up
@@ -48,41 +48,41 @@ This homework is graded based on the following criteria:
 
 ### Deployment: 32%
 
-* Application deployed at live URL.
+* A̶p̶p̶l̶i̶c̶a̶t̶i̶o̶n̶ d̶e̶p̶l̶o̶y̶e̶d̶ a̶t̶ l̶i̶v̶e̶ U̶R̶L̶.̶
 
-* Application loads with no errors.
+*̶ A̶p̶p̶l̶i̶c̶a̶t̶i̶o̶n̶ l̶o̶a̶d̶s̶ w̶i̶t̶h̶ n̶o̶ e̶r̶r̶o̶r̶s̶.̶
 
-* Application GitHub URL submitted.
+*̶ A̶p̶p̶l̶i̶c̶a̶t̶i̶o̶n̶ G̶i̶t̶H̶u̶b̶ U̶R̶L̶ s̶u̶b̶m̶i̶t̶t̶e̶d̶.̶
 
-* GitHub repository contains application code.
+*̶ G̶i̶t̶H̶u̶b̶ r̶e̶p̶o̶s̶i̶t̶o̶r̶y̶ c̶o̶n̶t̶a̶i̶n̶s̶ a̶p̶p̶l̶i̶c̶a̶t̶i̶o̶n̶ c̶o̶d̶e̶.̶
 
 ### Application Quality: 15%
 
-* Application user experience is intuitive and easy to navigate.
+* A̶p̶p̶l̶i̶c̶a̶t̶i̶o̶n̶ u̶s̶e̶r̶ e̶x̶p̶e̶r̶i̶e̶n̶c̶e̶ i̶s̶ i̶n̶t̶u̶i̶t̶i̶v̶e̶ a̶n̶d̶ e̶a̶s̶y̶ t̶o̶ n̶a̶v̶i̶g̶a̶t̶e̶.̶
 
-* Application user interface style is clean and polished.
+*̶ A̶p̶p̶l̶i̶c̶a̶t̶i̶o̶n̶ u̶s̶e̶r̶ i̶n̶t̶e̶r̶f̶a̶c̶e̶ s̶t̶y̶l̶e̶ i̶s̶ c̶l̶e̶a̶n̶ a̶n̶d̶ p̶o̶l̶i̶s̶h̶e̶d̶.̶
 
-* Application resembles the mock-up functionality provided in the homework instructions.
+*̶ A̶p̶p̶l̶i̶c̶a̶t̶i̶o̶n̶ r̶e̶s̶e̶m̶b̶l̶e̶s̶ t̶h̶e̶ m̶o̶c̶k̶-̶u̶p̶ f̶u̶n̶c̶t̶i̶o̶n̶a̶l̶i̶t̶y̶ p̶r̶o̶v̶i̶d̶e̶d̶ i̶n̶ t̶h̶e̶ h̶o̶m̶e̶w̶o̶r̶k̶ i̶n̶s̶t̶r̶u̶c̶t̶i̶o̶n̶s̶.̶
 
 ### Repository Quality: 13%
 
-* Repository has a unique name.
+* R̶e̶p̶o̶s̶i̶t̶o̶r̶y̶ h̶a̶s̶ a̶ u̶n̶i̶q̶u̶e̶ n̶a̶m̶e̶.̶
 
-* Repository follows best practices for file structure and naming conventions.
+*̶ R̶e̶p̶o̶s̶i̶t̶o̶r̶y̶ f̶o̶l̶l̶o̶w̶s̶ b̶e̶s̶t̶ p̶r̶a̶c̶t̶i̶c̶e̶s̶ f̶o̶r̶ f̶i̶l̶e̶ s̶t̶r̶u̶c̶t̶u̶r̶e̶ a̶n̶d̶ n̶a̶m̶i̶n̶g̶ c̶o̶n̶v̶e̶n̶t̶i̶o̶n̶s̶.̶
 
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
+*̶ R̶e̶p̶o̶s̶i̶t̶o̶r̶y̶ f̶o̶l̶l̶o̶w̶s̶ b̶e̶s̶t̶ p̶r̶a̶c̶t̶i̶c̶e̶s̶ f̶o̶r̶ c̶l̶a̶s̶s̶/̶i̶d̶ n̶a̶m̶i̶n̶g̶ c̶o̶n̶v̶e̶n̶t̶i̶o̶n̶s̶,̶ i̶n̶d̶e̶n̶t̶a̶t̶i̶o̶n̶,̶ q̶u̶a̶l̶i̶t̶y̶ c̶o̶m̶m̶e̶n̶t̶s̶,̶ e̶t̶c̶.̶
 
-* Repository contains multiple descriptive commit messages.
+*̶ R̶e̶p̶o̶s̶i̶t̶o̶r̶y̶ c̶o̶n̶t̶a̶i̶n̶s̶ m̶u̶l̶t̶i̶p̶l̶e̶ d̶e̶s̶c̶r̶i̶p̶t̶i̶v̶e̶ c̶o̶m̶m̶i̶t̶ m̶e̶s̶s̶a̶g̶e̶s̶.̶
 
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
+*̶ R̶e̶p̶o̶s̶i̶t̶o̶r̶y̶ c̶o̶n̶t̶a̶i̶n̶s̶ q̶u̶a̶l̶i̶t̶y̶ r̶e̶a̶d̶m̶e̶ f̶i̶l̶e̶ w̶i̶t̶h̶ d̶e̶s̶c̶r̶i̶p̶t̶i̶o̶n̶,̶ s̶c̶r̶e̶e̶n̶s̶h̶o̶t̶,̶ a̶n̶d̶ l̶i̶n̶k̶ t̶o̶ d̶e̶p̶l̶o̶y̶e̶d̶ a̶p̶p̶l̶i̶c̶a̶t̶i̶o̶n̶.̶
 
 ## Review
 
 You are required to submit BOTH of the following for review:
 
-* The URL of the functional, deployed application.
+* T̶h̶e̶ U̶R̶L̶ o̶f̶ t̶h̶e̶ f̶u̶n̶c̶t̶i̶o̶n̶a̶l̶,̶ d̶e̶p̶l̶o̶y̶e̶d̶ a̶p̶p̶l̶i̶c̶a̶t̶i̶o̶n̶.̶
 
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
+*̶ T̶h̶e̶ U̶R̶L̶ o̶f̶ t̶h̶e̶ G̶i̶t̶H̶u̶b̶ r̶e̶p̶o̶s̶i̶t̶o̶r̶y̶,̶ w̶i̶t̶h̶ a̶ u̶n̶i̶q̶u̶e̶ n̶a̶m̶e̶ a̶n̶d̶ a̶ r̶e̶a̶d̶m̶e̶ d̶e̶s̶c̶r̶i̶b̶i̶n̶g̶ t̶h̶e̶ p̶r̶o̶j̶e̶c̶t̶.̶
 
 ---
 

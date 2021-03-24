@@ -78,13 +78,13 @@ let buttonD = document.getElementById("d");
 let answerBtns = document.querySelector(".answer-btns");
 let highscores = [];
 let initialsEl = document.getElementById("initials");
-let submitBtn = document.getElementById("submit"); 
+let submitBtn = document.getElementById("submit");
 let listEl = document.getElementById("list");
 
 // Function Declarations
-function nextQuestion(){
+function nextQuestion() {
     if (questionNumber === 0) {
-        
+
         let question = quizQuestions[questionNumber].question;
         let answerA = quizQuestions[questionNumber].answerA;
         let answerB = quizQuestions[questionNumber].answerB;
@@ -98,7 +98,7 @@ function nextQuestion(){
         buttonD.innerHTML = answerD;
 
         document.getElementById("question-results").innerHTML = "";
-    } else if(questionNumber > 0 && questionNumber < questionBankSize) {
+    } else if (questionNumber > 0 && questionNumber < questionBankSize) {
         // alert("Next question")
         // TODO: Index into the questions array to the questionNumber and update the content of the page.
         question = quizQuestions[questionNumber].question;
@@ -121,7 +121,7 @@ function nextQuestion(){
     }
 }
 
-function startQuiz(){
+function startQuiz() {
     // emptyState.setAttribute("style", "visibility: hidden");
     emptyState.classList.toggle("hidden");
     // quiz.setAttribute("style", "visibility: visible");
@@ -131,14 +131,14 @@ function startQuiz(){
 }
 
 
-function gameOver(){
+function gameOver() {
     quiz.classList.toggle("hidden");
     gameOverEl.classList.toggle("hidden");
 
     score = timeLeft;
 }
 
-function quizComplete(){
+function quizComplete() {
 
     quiz.classList.toggle("hidden");
     gameOverEl.classList.toggle("hidden");
@@ -150,25 +150,24 @@ function quizComplete(){
 
 function countdownTimer() {
     // Sets interval in variable
-    let timerInterval = setInterval(function() {
-      timeLeft--;
-      timeEl.textContent = timeLeft;
-  
-      if(timeLeft === 0) {
-        // Stops execution of action at set interval
-        clearInterval(timerInterval);
-        // Calls function to create and append image
-        gameOver();
-      } else if (questionNumber === (questionBankSize)) {
-        clearInterval(timerInterval);
-      }
-    }, 1000);
-  }
+    let timerInterval = setInterval(function () {
+        timeLeft--;
+        timeEl.textContent = timeLeft;
 
-function printWinners(){
+        if (timeLeft === 0) {
+            // Stops execution of action at set interval
+            clearInterval(timerInterval);
+            // Calls function to create and append image
+            gameOver();
+        } else if (questionNumber === (questionBankSize)) {
+            clearInterval(timerInterval);
+        }
+    }, 1000);
+}
+
+function printWinners() {
 
     arrayToPrint = JSON.parse(localStorage.getItem("userList"));
-    console.log("Array to print is: " + arrayToPrint);
 
     arrayToPrint.sort(compare);
 
@@ -176,17 +175,17 @@ function printWinners(){
     // arrayToPrint.sort(compare);
     // } else {
 
-        for (let i = 0; i < arrayToPrint.length; i++) {
-            let initials = arrayToPrint[i].initials;
-            let score = arrayToPrint[i].score;
+    for (let i = 0; i < arrayToPrint.length; i++) {
+        let initials = arrayToPrint[i].initials;
+        let score = arrayToPrint[i].score;
 
-            let entry = document.createElement('li');
+        let entry = document.createElement('li');
 
-            entry.appendChild(document.createTextNode(initials + " " + score));
+        entry.appendChild(document.createTextNode(initials + " " + score));
 
-            listEl.appendChild(entry);
-        }
+        listEl.appendChild(entry);
     }
+}
 
 
 function compare(b, a) {
@@ -202,32 +201,26 @@ function compare(b, a) {
     return comparison;
 }
 
-function playAgain(){
-
-    highscoresEl.classList.toggle("hidden");
-    emptyState.classList.toggle("hidden");
-}
-
 // Event Listeners
 document.getElementById("start-quiz").addEventListener("click", countdownTimer);
 
-answerBtns.addEventListener("click", async function(event) {
+answerBtns.addEventListener("click", async function (event) {
 
 
-    if (event.srcElement.id === quizQuestions[questionNumber].correctAnswer){
+    if (event.srcElement.id === quizQuestions[questionNumber].correctAnswer) {
         document.getElementById("question-results").innerHTML = "That is correct!";
 
     } else {
         document.getElementById("question-results").innerHTML = "That is incorrect!";
         timeLeft = timeLeft - 20;
-        }
+    }
 
     await new Promise(r => setTimeout(r, 500));
     questionNumber++;
     nextQuestion();
 })
 
-document.addEventListener("submit", function(event) {
+document.addEventListener("submit", function (event) {
     event.preventDefault();
 
     highscoresEl.classList.toggle("hidden");
@@ -249,7 +242,7 @@ document.addEventListener("submit", function(event) {
         arrayToPrint = userArray;
     } else {
         // Create a new array that concats the local array + the storage array
-        arrayToPrint = userArray.concat(storageArray); 
+        arrayToPrint = userArray.concat(storageArray);
     }
 
     // Then, set that to storage.
@@ -259,11 +252,24 @@ document.addEventListener("submit", function(event) {
     printWinners();
 })
 
-document.getElementById("leaderboard-link").addEventListener("click", function(){
+document.getElementById("leaderboard-link").addEventListener("click", function () {
     highscoresEl.classList.toggle("hidden");
-    emptyState.classList.toggle("hidden");
+    // emptyState.classList.toggle("hidden");
 
-    // printWinners();
+
+    if (quiz.classList != "quiz hidden") {
+        quiz.classList.toggle("hidden");
+    }
+
+    if (emptyState.classList != "empty-state hidden") {
+        emptyState.classList.toggle("hidden");
+    }
+
+    // if (quiz.classList === "quiz hidden" && emptyState.classList === "empty-state hidden") {
+    //     emptyState.classList.toggle("hidden");
+    // }
+
+    printWinners();
 })
 
 
